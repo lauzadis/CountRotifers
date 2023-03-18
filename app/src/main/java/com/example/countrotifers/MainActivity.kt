@@ -1,6 +1,7 @@
 package com.example.countrotifers
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.countrotifers.databinding.ActivityMainBinding
+import org.opencv.android.OpenCVLoader
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+
+        if (!OpenCVLoader.initDebug()) {
+            Log.d("OpenCV", "Failed to initialize OpenCV")
+        } else {
+            Log.d("OpenCV", "Initialized OpenCV")
         }
     }
 

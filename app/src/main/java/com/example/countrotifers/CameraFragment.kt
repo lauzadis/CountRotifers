@@ -77,10 +77,10 @@ class CameraFragment: Fragment() {
             val imageAnalyzer = ImageAnalysis.Builder()
                 .build()
                 .also {
-                    it.setAnalyzer(cameraExecutor, LuminosityAnalyzer { luma ->
-                        Log.d(TAG, "Average luminosity: $luma")
+                    it.setAnalyzer(cameraExecutor, RotiferAnalyzer { rot ->
+                        Log.d(TAG, "Rotifers: $rot")
                         binding?.let {
-                            handler.post { it.luminosity.text = "Luminosity: $luma" }
+                            handler.post { it.luminosity.text = "Rotifers: $rot" }
                         }
                     })
                 }
